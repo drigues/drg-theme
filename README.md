@@ -6,6 +6,6 @@ A raw wordpress theme for an institutional website
 - Breadcrumb function
 - Model of show child pages into parent body when is private as widget
 
-## At wp-admin panel
+## At wp-admin painel
 - Homepage Reading Settings
 - Permalink Settings > Post Name
