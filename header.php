@@ -148,7 +148,6 @@
 
     <hr>
 
-
     <?php
     /**
      * 
@@ -161,29 +160,38 @@
             'posts_per_page' => -1,
             'post_parent'    => $post->ID,
             'order'          => 'ASC',
-            'orderby'        => 'menu_order',
-            'post_status'    => $post_status,
-
+            'orderby'        => 'menu_order'
         );
 
         $parent = new WP_Query( $args );
-            
-        if ( $parent->have_posts() ) : ?>
 
-        <?php while ( $parent->have_posts() ) : $parent->the_post(); ?>
+        if ( $parent->have_posts() ) {
 
-            <div id="parent-<?php the_ID(); ?>" class="parent-page">
+            //get_post_status( $post->ID )
 
-                <h1><?php the_title(); ?></h1>
-                <p><?php the_content();  echo $post_status;?></p>
+            while ( $parent->have_posts() ) : $parent->the_post();
 
-            </div>
+                echo '<div id="parent-' . get_the_ID() . '"class="parent-page">';
+                echo '<h1>' . get_the_title() . '</h1>';
+                echo '<p>' . get_the_content() . '</p>';
+                echo '</div>';
 
-        <?php endwhile; ?>
+            endwhile;
 
-        <?php endif; 
+        }
 
     ?>
 
     
+
+    
 <hr>   
+
+<!-- 
+TO DO LIST
+- BOOTSTRAP FULLY WORKING
+- BREADCRUMB
+- NEWS PAGE SHOWING ALL POST
+- PHOTO GALLERY
+- PARALLAX
+ -->
